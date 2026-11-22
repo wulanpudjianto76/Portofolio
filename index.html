@@ -1,23 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Karunia Putri Wulansari's Executive Assistant and Operations portfolio.">
+<title>Karunia Putri Wulansari | Executive Assistant &amp; Operations</title>
+<style>
+:root {
+  color-scheme: light;
+  --ink: #152238;
+  --muted: #48566a;
+  --paper: #f6f8fb;
+  --white: #fff;
+  --line: #d8e0eb;
+  --accent: #1746bc;
+  --blue-bg: #e9f0ff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font: 1rem/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: inherit; text-underline-offset: .25em; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.wrap { width: min(1120px, calc(100% - 3rem)); margin-inline: auto; }
+header { border-bottom: 1px solid var(--line); }
+header .wrap, footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .65rem 1.5rem;
+  padding-block: 1.1rem;
+}
+.brand { font-weight: 750; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover, footer a:hover { color: var(--accent); text-decoration: underline; }
+.hero { background: var(--paper); border-bottom: 1px solid var(--line); padding-block: clamp(3rem, 7vw, 6rem); }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.eyebrow { color: var(--accent); font-weight: 700; font-size: .9375rem; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.12; }
+h1 { font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing: -.06em; margin-bottom: 1.25rem; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.045em; margin-bottom: .75rem; }
+h3 { font-size: 1.25rem; letter-spacing: -.015em; margin-bottom: .65rem; }
+.lead { max-width: 35rem; font-size: 1.125rem; color: var(--muted); }
+.actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.55rem; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: .6rem 1rem;
+  background: var(--accent);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+}
+.button:hover { background: #103385; }
+.outline { background: transparent; color: var(--accent); }
+.outline:hover { background: var(--blue-bg); }
+.hero-side { padding: 1.15rem; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.portrait { display: block; width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; object-position: center 42%; border-radius: 6px; }
+.metrics { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; margin: 1rem 0 0; }
+.metric + .metric { border-left: 1px solid var(--line); padding-left: 1rem; }
+.metric dt { color: var(--accent); font-size: 1.9rem; font-weight: 750; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.metric dd { margin: .3rem 0 0; font-size: .875rem; line-height: 1.4; color: var(--muted); }
+.work, .samples, .credentials, .contact { padding-block: clamp(3rem, 6vw, 5rem); }
+.intro, .meta, .gallery p { color: var(--muted); }
+.intro { max-width: 43rem; }
+.cases { margin-top: 1.7rem; border-top: 1px solid var(--line); }
+article { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
+.meta, .detail > p:last-child { margin-bottom: 0; }
+.detail p { margin-bottom: .6rem; }
+summary { cursor: pointer; color: var(--accent); font-weight: 650; }
+details[open] summary { margin-bottom: .55rem; }
+.samples { background: var(--paper); border-block: 1px solid var(--line); }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.6rem; }
+.gallery figure { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--white); }
+.gallery a { display: block; }
+.gallery a:focus-visible { outline-offset: -4px; }
+.gallery img { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+.gallery figcaption { padding: 1.1rem; }
+.gallery h3 { font-size: 1.1rem; }
+.gallery p { margin-bottom: 0; }
+.credential-list { list-style: none; padding: 0; margin: 1.7rem 0 0; border-top: 1px solid var(--line); }
+.credential-list li { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .25rem 1.2rem; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+.credential-list span { color: var(--muted); }
+.contact { background: var(--blue-bg); border-block: 1px solid var(--line); }
+.contact p { max-width: 42rem; }
+.email { color: var(--accent); overflow-wrap: anywhere; }
+footer { color: var(--muted); }
+@media (max-width: 760px) {
+  .hero .wrap, article { grid-template-columns: 1fr; }
+  article { gap: .75rem; }
+  .hero-side { max-width: 420px; }
+  .gallery { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .wrap { width: calc(100% - 2rem); }
+  nav { gap: .35rem .8rem; font-size: .875rem; }
+}
+</style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-    </header>
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <p>This is the homepage of my portfolio website.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 wulanpudjianto76</p>
-    </footer>
+<body id="top">
+<header><div class="wrap"><a class="brand" href="#top">Karunia Putri Wulansari</a><nav aria-label="Main navigation"><a href="#work">Experience</a><a href="#samples">Work samples</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero" aria-labelledby="role"><div class="wrap"><div>
+<p class="eyebrow">Karunia Putri Wulansari</p>
+<h1 id="role">Executive Assistant &amp; Operations</h1>
+<p class="lead">I coordinate executive calendars, travel, and day-to-day operations. I keep schedules current, records organized, and next steps clear.</p>
+<div class="actions"><a class="button" href="#work">View my experience</a><a class="button outline" href="#contact">Get in touch</a></div>
+</div><div class="hero-side"><img class="portrait" src="images/karunia-linkedin.svg" width="800" height="800" alt="Karunia Putri Wulansari"><dl class="metrics">
+<div class="metric"><dt>4–5</dt><dd>Executive meetings coordinated per week</dd></div>
+<div class="metric"><dt>739+</dt><dd>Applications screened in a remote operations role</dd></div>
+</dl></div></div></section>
+<section class="work" id="work"><div class="wrap">
+<h2>Selected experience</h2>
+<p class="intro">From supporting a director’s schedule to coordinating interviews remotely, here’s what I’ve handled.</p>
+<div class="cases">
+<article><div><h3>Executive scheduling &amp; travel</h3><p class="meta">Unggul Putra Samudra · 2020–2025</p></div><div class="detail"><p>As Personal Assistant to the Director, I coordinated 4–5 meetings per week across international time zones and arranged domestic and overseas business travel.</p><details><summary>Responsibilities</summary><p>Managed the director’s calendar and priorities, handled client and vendor correspondence, and organized meeting logistics and follow-ups.</p></details></div></article>
+<article><div><h3>Remote operations &amp; coordination</h3><p class="meta">Proxa Limited · 2025–2026</p></div><div class="detail"><p>As a Remote Virtual Assistant, I coordinated interviews, maintained recruitment and CRM trackers, and prepared updates for stakeholders.</p><details><summary>Responsibilities</summary><p>Screened 739+ applications and kept trackers current so the team could see each candidate’s status and next step.</p></details></div></article>
+<article><div><h3>Confidential records &amp; admin support</h3><p class="meta">HR administration and finance support</p></div><div class="detail"><p>I maintained confidential employee records, organized onboarding documents, checked invoices, and supported reconciliations.</p></div></article>
+</div></div></section>
+<section class="samples" id="samples"><div class="wrap"><h2>Remote work samples</h2><p class="intro">Examples from my work as a Remote Virtual Assistant at Proxa Limited.</p><div class="gallery">
+<figure><a href="images/recruitment-tracker.svg" aria-label="Open full image: Recruitment screening"><img src="images/recruitment-tracker.svg" width="471" height="267" loading="lazy" alt="Google Sheets recruitment tracker with applicant details obscured"></a><figcaption><h3>Recruitment screening</h3><p>Tracked applicant responses, portfolio links, and evaluation fields in Google Sheets.</p></figcaption></figure>
+<figure><a href="images/operations-documentation.svg" aria-label="Open full image: Creative operations documentation"><img src="images/operations-documentation.svg" width="471" height="267" loading="lazy" alt="Spreadsheet with creative prompts and visual reference thumbnails"></a><figcaption><h3>Creative operations documentation</h3><p>Organized creative briefs and visual references in one spreadsheet.</p></figcaption></figure>
+<figure><a href="images/community-operations.svg" aria-label="Open full image: Community operations"><img src="images/community-operations.svg" width="471" height="267" loading="lazy" alt="Skool community activity view with personal details obscured"></a><figcaption><h3>Community operations</h3><p>Supported community discussions and member interactions on Skool.</p></figcaption></figure>
+</div></div></section>
+<section class="credentials" id="credentials" aria-labelledby="credentials-heading"><div class="wrap">
+<h2 id="credentials-heading">Certifications &amp; training</h2>
+<ul class="credential-list">
+<li><strong>EF SET English Certificate</strong><span>B2 Upper Intermediate · 59/100 · June 2026</span></li>
+<li><strong>HR Competency Certification</strong><span>BNSP · 2018</span></li>
+<li><strong>AI Training</strong><span>Generation Girl · 2026</span></li>
+</ul>
+</div></section>
+<section class="contact" id="contact"><div class="wrap"><h2>Let’s talk</h2><p>If you’re hiring for an Executive Assistant or Operations role, I’d like to hear about your team and the support you need.</p><a class="email" href="mailto:karunia084@gmail.com">karunia084@gmail.com</a><div class="actions"><a class="button" href="mailto:karunia084@gmail.com">Email me</a><a class="button outline" href="https://www.linkedin.com/in/karunia-putri-wulansari/">View LinkedIn</a></div></div></section>
+</main>
+<footer><div class="wrap"><span>Karunia Putri Wulansari</span><a href="#top">Back to top</a></div></footer>
 </body>
 </html>
