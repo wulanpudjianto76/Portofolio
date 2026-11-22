@@ -86,6 +86,8 @@ article { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; padding-bl
 summary { cursor: pointer; color: var(--accent); font-weight: 650; }
 details[open] summary { margin-bottom: .55rem; }
 .samples { background: var(--paper); border-block: 1px solid var(--line); }
+.email-example { max-width: 44rem; margin: 2rem 0 0; }
+.email-example img { display: block; width: 100%; height: auto; margin-top: .75rem; border: 1px solid var(--line); border-radius: 8px; }
 .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.6rem; }
 .gallery figure { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--white); }
 .gallery a { display: block; }
@@ -145,6 +147,12 @@ footer { color: var(--muted); }
   <div class="detail"><p>I managed itineraries for international buyers from the time they arrived in Indonesia until they flew home. I coordinated airport pickups, hotel arrangements, local transportation, business meetings, and showroom visits. I planned the schedule around each buyer’s arrival and departure times.</p></div>
 </article>
 </div>
+<figure class="email-example">
+  <figcaption><h3>Email examples</h3><p class="meta">Recreated from work experience</p></figcaption>
+  <a href="images/email-coordination.svg" aria-label="Open full-size email examples">
+    <img src="images/email-coordination.svg" width="900" height="1125" loading="lazy" alt="Recreated emails for scheduling a call with U.S. participants and confirming an international buyer’s visit itinerary">
+  </a>
+</figure>
 <h3 style="margin-top: 2rem">Remote operations at Proxa Limited</h3>
 <div class="gallery">
 <figure><a href="images/recruitment-tracker.svg" aria-label="Open full image: Recruitment screening"><img src="images/recruitment-tracker.svg" width="471" height="267" loading="lazy" alt="Google Sheets recruitment tracker with applicant details obscured"></a><figcaption><h3>Recruitment screening</h3><p>Tracked applicant responses, portfolio links, and evaluation fields in Google Sheets.</p></figcaption></figure>
